@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+  <title>Gomorronmannen</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- favicon: change if you want -->
+  <link rel="icon" href="assets/icons/github.svg" />
+</head>
+<body>
+<!-- Entry overlay -->
+<div class="entry-overlay" id="entryOverlay">
+  <div class="entry-text">Click to enter...</div>
+</div>
+
+  <div class="page-wrap">
+    <!-- Header / Profile Card -->
+    <header class="profile-card glass" role="banner">
+      <div class="profile-bg-blur" aria-hidden="true"></div>
+
+      <div class="profile-inner">
+        <!-- Avatar: replace with your avatar image -->
+        <img class="avatar" src="assets/covers/avatar.jpg" alt="avatar" />
+
+        <!-- Display name -->
+        <h1 class="display-name">Gomorronmannen</h1>
+
+        <!-- Short bio / tagline -->
+        <p class="tagline">
+          Hello i'm Gomorronmannen 👋 I love coding and music 🎸 I play guitar as my main instrument and know most coding languages 🎧
+        </p>
+
+        <!-- Social icons: using your SVGs in assets/icons/ -->
+        <div class="socials" role="navigation" aria-label="Social links">
+          <a class="social" href="https://www.tiktok.com/@hannes_swe" target="_blank" rel="noopener" aria-label="TikTok">
+            <img src="assets/icons/tiktok.svg" alt="TikTok" />
+          </a>
+
+          <!-- YouTube placeholder: you can replace with youtube.svg if you have it -->
+          <a class="social" href="https://github.com/Gomorronmannen" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="assets/icons/github.svg" alt="GitHub" />
+          </a>
+
+          <a class="social" href="https://discord.gg/A4wNyhpSvA" target="_blank" rel="noopener" aria-label="Discord Server">
+            <img src="assets/icons/discord.svg" alt="Discord Server" />
+          </a>
+
+          <a class="social" href="https://www.paypal.me/Gomorron" target="_blank" rel="noopener" aria-label="PayPal">
+            <img src="assets/icons/paypal.svg" alt="PayPal" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+<!-- Player + Discord row -->
+<div class="cards-row">
+  
+  <!-- Player card -->
+  <section class="player-card glass" aria-label="Music player">
+    <div class="player-left" aria-hidden="true">
+      <img id="player-cover" src="assets/covers/song1.jpg" alt="Current track cover" />
+    </div>
+
+    <div class="player-right">
+      <!-- Track info -->
+      <div class="track-info" aria-live="polite">
+        <div class="track-title" id="track-title">Title</div>
+        <div class="track-artist" id="track-artist">Artist</div>
+      </div>
+
+      <!-- Time + progress bar -->
+      <div class="time" aria-hidden="false">
+        <span id="currentTime">0:00</span>
+        <div id="progressBar" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0" title="Seek">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <span id="duration">0:00</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls" role="group" aria-label="Player controls">
+        <button id="prevBtn" class="ctrl" aria-label="Previous track">⏮</button>
+        <button id="playBtn" class="ctrl" aria-label="Play or pause">▶</button>
+        <button id="nextBtn" class="ctrl" aria-label="Next track">⏭</button>
+
+        <!-- Volume -->
+        <div class="volume">
+          <span aria-hidden="true">🔊</span>
+          <input type="range" id="volumeSlider" min="0" max="100" value="70" aria-label="Volume" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discord status card -->
+  <section class="discord-card glass" aria-labelledby="discordHeading">
+    <h3 id="discordHeading">Live Discord Status</h3>
+
+    <div id="discordStatus" class="discord-status" role="region" aria-live="polite">
+      <img id="discordAvatar" src="assets/icons/discord.svg" alt="discord avatar" />
+      <div class="discord-text">
+        <div id="discordName">Not connected</div>
+        <div id="discordActivity">—</div>
+      </div>
+
+      <div id="discordIndicator" class="status-dot offline" aria-hidden="true"></div>
+    </div>
+  </section>
+
+</div>
+
+  <!-- VHS / overlay layer (visual only) -->
+  <div class="vhs-overlay" aria-hidden="true"></div>
+
+  <!-- Hidden audio element used by script.js -->
+  <audio id="audio" preload="metadata"></audio>
+
+  <!-- script.js expects ids and structure above -->
+  <script src="script.js"></script>
+</body>
+</html>

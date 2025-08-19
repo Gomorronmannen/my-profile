@@ -1,0 +1,394 @@
+/* ============================
+   Global Variables
+   ============================ */
+:root {
+  --bg-image: url("assets/bg/background.jpg");
+  --accent: #9b5cf6;
+  --accent-2: #f08fe8;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+  --card-radius: 14px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --max-width: 1000px;
+  --page-padding: 24px;
+}
+
+/* ============================
+   Base
+   ============================ */
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background:
+    linear-gradient(to bottom, rgba(10, 6, 8, 0.65), rgba(6, 6, 6, 0.9)),
+    var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Make the body a full-viewport flex container so the page content
+   is centered both vertically and horizontally. Use min-height so
+   the page can still grow and scroll when content is taller. */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  /* allow normal scrolling if content exceeds viewport */
+}
+
+/* The page wrapper stays responsive: it fills available width up to
+   --max-width and keeps padding. width:100% ensures padding doesn't
+   push it wider than the viewport on small screens. */
+.page-wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--page-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* ============================
+   Glass
+   ============================ */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+
+/* ============================
+   Profile
+   ============================ */
+.profile-card {
+  position: relative;
+  padding: 32px 20px;   /* smaller padding */
+  text-align: center;
+  max-width: 600px;     /* cap its width */
+  margin: 0 auto;       /* center it */
+}
+
+
+.profile-bg-blur {
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(12px) brightness(0.7);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.profile-inner { position: relative; z-index: 1; }
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.display-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 6px 0;
+}
+
+.tagline {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ============================
+   Socials
+   ============================ */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.social img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.social:hover img {
+  transform: scale(1.12);
+  filter: brightness(1.2);
+}
+
+/* ============================
+   Player (Improved)
+   ============================ */
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  max-width: 470px;   /* limit how wide it can grow */
+  flex: unset;        /* don’t let flexbox stretch it */
+}
+
+.player-left img {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+}
+
+.player-right { 
+  flex: 1; 
+  min-width: 0; 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+.track-artist {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.ctrl {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 15px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ctrl:hover { 
+  background: rgba(255,255,255,0.18); 
+  transform: scale(1.08);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.time span { width: 40px; text-align: center; }
+
+.progress {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 25%; /* example fill */
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.25s ease;
+}
+
+/* Volume slider */
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto; /* pushes it to the right */
+}
+
+.volume span {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+#volumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  outline: none;
+  cursor: pointer;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#volumeSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+#volumeSlider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+
+/* ============================
+   Discord Status
+   ============================ */
+.discord-card { padding: 20px; }
+
+.discord-card h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.discord-status {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+}
+
+.discord-status img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+}
+
+#discordName {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#discordActivity {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.3);
+}
+
+/*cardline*/
+.cards-row {
+  display: flex;
+  gap: 20px;              /* space between the two cards */
+  align-items: flex-start; /* align them at the top */
+}
+
+/* Optional: control sizing */
+.player-card {
+  flex: 2; /* takes more space */
+}
+
+.discord-card {
+  flex: 1; /* smaller card */
+}
+
+/* Mobile responsive: stack them again */
+@media (max-width: 768px) {
+  .cards-row {
+    flex-direction: column;
+  }
+}
+
+
+.status-dot.online { background: #66ff88; }
+.status-dot.idle { background: #ffd36b; }
+.status-dot.dnd { background: #ff6b6b; }
+.status-dot.offline { background: rgba(255,255,255,0.15); }
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 768px) {
+  .player-card { flex-direction: column; align-items: flex-start; }
+  .player-left img { width: 100%; max-width: 300px; }
+  .avatar { width: 80px; height: 80px; }
+  .display-name { font-size: 22px; }
+}
+
+/* Entry overlay */
+.entry-overlay {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.8s ease; /* fade effect */
+}
+
+.entry-overlay.hidden {
+  opacity: 0;
+  pointer-events: none; /* no clicks after hiding */
+}
+
+.entry-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  text-align: center;
+}
