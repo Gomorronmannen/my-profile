@@ -392,3 +392,18 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,0.5);
   text-align: center;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  padding: 10px;
+  
+  background: rgba(0,0,0,0); /* optional so text doesn’t overlap */
+}
+
