@@ -251,7 +251,7 @@ window.addEventListener("keydown", (e) => {
 // LANYARD (Discord)    //
 //////////////////////////
 async function fetchLanyard() {
-  if (!discordId || discordId === "1414184318913351753") {
+  if (!discordId || discordId === "YOUR DISCORD ID HERE") {
     discordNameEl.textContent = "Add your Discord ID in script.js";
     discordActivityEl.textContent = "";
     discordAvatarEl.src = "assets/icons/discord.svg";
@@ -308,4 +308,5 @@ setInterval(fetchLanyard, 100);
 // STARTUP              //
 //////////////////////////
 initPlayer();
+
 
