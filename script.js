@@ -11,7 +11,7 @@
 ///////////////////////
 // CONFIG - edit me! //
 ///////////////////////
-const discordId = "1041611898149408768"; // e.g. "1325567817319452682"
+const discordId = "1414184318913351753"; // e.g. "1325567817319452682"
 const randomOnLoad = true;
 const autoplay = true; // browsers often block autoplay of unmuted audio
 
@@ -251,7 +251,7 @@ window.addEventListener("keydown", (e) => {
 // LANYARD (Discord)    //
 //////////////////////////
 async function fetchLanyard() {
-  if (!discordId || discordId === "YOUR_DISCORD_ID_HERE") {
+  if (!discordId || discordId === "1414184318913351753") {
     discordNameEl.textContent = "Add your Discord ID in script.js";
     discordActivityEl.textContent = "";
     discordAvatarEl.src = "assets/icons/discord.svg";
@@ -308,3 +308,4 @@ setInterval(fetchLanyard, 100);
 // STARTUP              //
 //////////////////////////
 initPlayer();
+
